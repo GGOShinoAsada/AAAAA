@@ -1,0 +1,44 @@
+﻿@model AAAAA.DAO.Product
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+
+@using (Html.BeginForm()) 
+{
+    <fieldset>
+        <legend>Create product</legend>
+        <p>
+            Product name<br /> @Html.EditorFor(model => model.Name)
+        </p>
+        <p>
+            Price<br/>
+            @Html.EditorFor(mode => mode.Price)
+        </p>
+       
+        <p>
+            Description<br/>
+            @Html.EditorFor(model=>model.Description)
+        </p>
+        <p>
+            Category<br />
+            @Html.DropDownListFor(model => model.CategoryId, ViewBag.CategoryId as SelectList)
+        </p>
+        <p>
+            <input type="submit" value="add" />
+        </p>
+    </fieldset>
+    
+      
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
