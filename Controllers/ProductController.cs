@@ -61,14 +61,6 @@ namespace AAAAA.Controllers
             {
                 return View();
             }
-            SelectList categories = new SelectList(context.CategoriesContext, "Id", "Name");
-            ViewBag.CategoryId = categories;
-            //var cat = (from c in context.CategoriesContext where c.Id == collection.CategoryId select c).FirstOrDefault();
-            //context.CategoriesContext.Find(cat.Id);
-
-            //context.ProductContext.Add(collection);
-            //context.SaveChanges();
-            return View();
         }
 
         // GET: Product/Edit/5
@@ -82,6 +74,7 @@ namespace AAAAA.Controllers
         [HttpPost]
         public ActionResult Edit(int id, Product collection)
         {
+            int a = 0;
             try
             {
                 Product pr = new Product();
@@ -91,6 +84,7 @@ namespace AAAAA.Controllers
                     pr.id = collection.id;
                     pr.Name = collection.Name;
                     pr.Description = collection.Description;
+                    pr.CategoryId = collection.CategoryId;
                     context.SaveChanges();
                 }
 
